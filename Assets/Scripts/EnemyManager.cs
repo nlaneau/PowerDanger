@@ -51,7 +51,8 @@ namespace Assets.Scripts
                     sprite.transform.position = LEFT_SPAWN;
                     break;
                 case 1:
-                    sprite.transform.position = RIGHT_SPAWN;
+                    sprite.transform.Rotate(0, 180, 0, Space.Self);
+                    sprite.transform.position = RIGHT_SPAWN; 
                     break;
             }
 
