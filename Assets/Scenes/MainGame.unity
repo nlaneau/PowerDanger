@@ -1452,7 +1452,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
 --- !u!114 &1748619744
 MonoBehaviour:
   m_ObjectHideFlags: 0
