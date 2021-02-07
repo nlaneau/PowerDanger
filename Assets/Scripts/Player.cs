@@ -60,4 +60,9 @@ public class Player : MonoBehaviour
         else if (Input.GetKey(KeyCode.Space))
             SpriteRenderer.sprite = _pPose;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Take damage
+    }
 }
