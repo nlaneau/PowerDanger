@@ -13,46 +13,56 @@ public class Player : MonoBehaviour
 
     private SpriteRenderer SpriteRenderer;
 
+    private const int BLUR_FRAME_DURATION = 10;
+
     // Start is called before the first frame update
     void Start()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private int i = 0;
+    private int currentBlurStep = 0;
 
     // Update is called once per frame
     void Update()
     {
-        // Dummy test code below
-        switch (i)
+        if (SpriteRenderer.sprite.Equals(_transitionBlur) 
+            && currentBlurStep >= BLUR_FRAME_DURATION)
         {
-            case 0:
-                SpriteRenderer.sprite = _neutral;
-                break;
-            case 1:
-                SpriteRenderer.sprite = _attackLeft;
-                break;
-            case 2:
-                SpriteRenderer.sprite = _attackRight;
-                break;
-            case 3:
-                SpriteRenderer.sprite = _pPose;
-                break;
-            case 4:
-                SpriteRenderer.sprite = _pPoseBlack;
-                break;
-            case 5:
-                SpriteRenderer.sprite = _transitionBlur;
-                break;
+            SetSpriteFromKey();
+
+            currentBlurStep = 0;
         }
+        else if (SpriteRenderer.sprite.Equals(_transitionBlur))
+        {
+            currentBlurStep++;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow)
+            || Input.GetKeyDown(KeyCode.LeftArrow)
+            || Input.GetKeyDown(KeyCode.Space))
+        {
+            SpriteRenderer.sprite = _transitionBlur;
+        }
+        else if (!Input.GetKey(KeyCode.RightArrow)
+            && !Input.GetKey(KeyCode.LeftArrow)
+            && !Input.GetKey(KeyCode.Space))
+        {
+            SpriteRenderer.sprite = _neutral;
+        }         
+    }
 
-        i++;
+    private void SetSpriteFromKey()
+    {
+        if (Input.GetKey(KeyCode.RightArrow))
+            SpriteRenderer.sprite = _attackRight;
+        else if (Input.GetKey(KeyCode.LeftArrow))
+            SpriteRenderer.sprite = _attackLeft;
+        else if (Input.GetKey(KeyCode.Space))
+            SpriteRenderer.sprite = _pPose;
+    }
 
-        if (i > 5)
-            i = 0;
-
-        // Check button presses
-            // Switch pose based on input, with blur in between
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Take damage
     }
 }

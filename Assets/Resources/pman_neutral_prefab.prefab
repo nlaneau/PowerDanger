@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8073356340891220736}
   - component: {fileID: 8437964974460243744}
   m_Layer: 0
-  m_Name: pman_neutral
+  m_Name: pman_neutral_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
