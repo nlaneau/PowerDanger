@@ -14,8 +14,8 @@ namespace Assets.Scripts
         private List<GameObject> CurrentEnemies = new List<GameObject>();
         private System.Random _randomNumberGenerator = new System.Random();
 
-        private readonly Vector3 LEFT_SPAWN = new Vector3(-15, 0);
-        private readonly Vector3 RIGHT_SPAWN = new Vector3(15, 0);
+        private readonly Vector3 LEFT_SPAWN = new Vector3(-30, 0);
+        private readonly Vector3 RIGHT_SPAWN = new Vector3(30, 0);
         private const int MAX_ENEMY_COUNT = 20;
         private const int FRAME_SPAWN_FREQUENCY = 100;
 
