@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     public Sprite _pPose;
     public Sprite _pPoseBlack;
     public Sprite _transitionBlur;
+    
+    public AudioSource _attackVOalt;
+    public AudioSource _attackVOalt2;
+    public AudioSource _charging_VO;
+    public AudioSource _charging_sfx;
 
     private SpriteRenderer SpriteRenderer;
 
@@ -48,17 +53,28 @@ public class Player : MonoBehaviour
             && !Input.GetKey(KeyCode.Space))
         {
             SpriteRenderer.sprite = _neutral;
+            _charging_sfx.Stop();
         }         
     }
 
     private void SetSpriteFromKey()
     {
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             SpriteRenderer.sprite = _attackRight;
+            _attackVOalt.Play();
+        }
         else if (Input.GetKey(KeyCode.LeftArrow))
+        {
             SpriteRenderer.sprite = _attackLeft;
+            _attackVOalt2.Play();
+        }
         else if (Input.GetKey(KeyCode.Space))
+        {
             SpriteRenderer.sprite = _pPose;
+            _charging_VO.Play();
+            _charging_sfx.Play();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
