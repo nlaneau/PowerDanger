@@ -9,8 +9,13 @@ namespace Assets.Scripts
 {
     public class EnemyColliders : MonoBehaviour
     {
+        public Power _power;
+
+        private const int HURT_POWER_LEVEL = 25;
+
         private void Start()
         {
+            _power = GameObject.FindGameObjectWithTag(Constants.Player).GetComponent<Power>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +30,7 @@ namespace Assets.Scripts
             {
                 // Player gets hurt
                 Destroy(transform.gameObject);
+                _power.LosePower(HURT_POWER_LEVEL);
             }
             else
             {
