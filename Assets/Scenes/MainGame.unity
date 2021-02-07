@@ -208,17 +208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e01e106be6d8e4791b1f6ccc1364e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _neutral: {fileID: 1919816022132440311, guid: 39c0563daed545946a9208f6ae0f5797,
-    type: 3}
-  _attackLeft: {fileID: 4156161491304174543, guid: dea4d8ba1fe007b4e86fa223ce57c17c,
-    type: 3}
-  _attackRight: {fileID: 6395546332797709413, guid: d726a543494818c4a84ca9ea478dfd07,
-    type: 3}
-  _pPose: {fileID: 6648210615352013756, guid: 2edec2888e33e274fa845ad13d445306, type: 3}
-  _pPoseBlack: {fileID: 6508813810840859736, guid: 4ff8ec93c3131f74ebff18a531dcba8f,
-    type: 3}
-  _transitionBlur: {fileID: 5272861575065920269, guid: 9e18c859acac95749b897126101652f2,
-    type: 3}
+  _neutral: {fileID: 21300000, guid: 279cc658bd42f7c4a8685ee7b00bb1ba, type: 3}
+  _attackLeft: {fileID: 21300000, guid: 1a02aa8ca6766a64f92b3b73cd8195fb, type: 3}
+  _attackRight: {fileID: 21300000, guid: 92a32aca50f7daf47bd08f8d75867166, type: 3}
+  _pPose: {fileID: 21300000, guid: f3544db9b4dddda4b9a668fc423d9542, type: 3}
+  _pPoseBlack: {fileID: 21300000, guid: 86da7e6b1c2f7c04782698e07fe6d505, type: 3}
+  _transitionBlur: {fileID: 21300000, guid: 7efe1dc70039ed249a9a9184d1b504ad, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
