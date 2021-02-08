@@ -16,8 +16,8 @@ namespace Assets.Scripts
 
         private readonly Vector3 LEFT_SPAWN = new Vector3(-30, 0);
         private readonly Vector3 RIGHT_SPAWN = new Vector3(30, 0);
-        private const int MAX_ENEMY_COUNT = 20;
-        private const int FRAME_SPAWN_FREQUENCY = 100;
+        private const int MAX_ENEMY_COUNT = 50;
+        private const int FRAME_SPAWN_FREQUENCY = 150;
 
         private int FrameCount = 0;
 
