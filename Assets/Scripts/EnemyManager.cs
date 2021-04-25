@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class EnemyManager : MonoBehaviour
     {
-        public List<GameObject> _prefabs;
+        public List<GameObject> _enemyPrefabs;
 
-        private List<GameObject> CurrentEnemies = new List<GameObject>();
-        private System.Random _randomNumberGenerator = new System.Random();
+        private readonly List<GameObject> CurrentEnemies = new List<GameObject>();
 
         private readonly Vector3 LEFT_SPAWN = new Vector3(-30, 0);
         private readonly Vector3 RIGHT_SPAWN = new Vector3(30, 0);
@@ -30,6 +25,8 @@ namespace Assets.Scripts
                 // Spawns enemies
                 if (CurrentEnemies.Count < MAX_ENEMY_COUNT)
                     SpawnEnemy();
+
+                FrameCount = 0;
             }
 
             FrameCount++;
@@ -40,11 +37,11 @@ namespace Assets.Scripts
         /// </summary>
         private void SpawnEnemy()
         {
-            var randomSprite = _randomNumberGenerator.Next(0, _prefabs.Count);
+            var randomSprite = Random.Range(0, _enemyPrefabs.Count);
 
-            var sprite = Instantiate(_prefabs[randomSprite]);
+            var sprite = Instantiate(_enemyPrefabs[randomSprite]);
 
-            var randomSide = _randomNumberGenerator.Next(0, 2);
+            var randomSide = Random.Range(0, 2);
             switch (randomSide)
             {
                 case 0:

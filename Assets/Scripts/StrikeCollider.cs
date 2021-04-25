@@ -1,39 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
     class StrikeCollider : MonoBehaviour
     {
-        private SpriteRenderer SpriteRenderer;
-        private BoxCollider2D BoxCollider;
+        private SpriteRenderer _playerSpriteRenderer;
+        private BoxCollider2D _hitBox;
 
         // Start is called before the first frame update
         void Start()
         {
-            SpriteRenderer = GetComponentInParent<SpriteRenderer>();
-            BoxCollider = GetComponent<BoxCollider2D>();
+            _playerSpriteRenderer = GetComponentInParent<SpriteRenderer>();
+            _hitBox = GetComponent<BoxCollider2D>();
         }
 
         void Update()
         {
             // Determine if any should be active, depending on the current Player pose
-            if (SpriteRenderer.sprite.name == "pman_atk_L" && CompareTag("LeftStrikeCollider"))
+            if (_playerSpriteRenderer.sprite.name == "pman_atk_L" 
+                && CompareTag(Constants.LeftStrikeCollider))
             {
-                BoxCollider.enabled = true;
+                _hitBox.enabled = true;
                 return;
             }
-            else if (SpriteRenderer.sprite.name == "pman_atk_R" && CompareTag("RightStrikeCollider"))
+            else if (_playerSpriteRenderer.sprite.name == "pman_atk_R" 
+                && CompareTag(Constants.RightStrikeCollider))
             {
-                BoxCollider.enabled = true;
+                _hitBox.enabled = true;
                 return;
             }
 
-            BoxCollider.enabled = false;
+            _hitBox.enabled = false;
         }
     }    
 }

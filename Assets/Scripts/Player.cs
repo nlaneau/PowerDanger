@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -16,14 +14,14 @@ public class Player : MonoBehaviour
     public AudioSource _charging_VO;
     public AudioSource _charging_sfx;
 
-    private SpriteRenderer SpriteRenderer;
+    private SpriteRenderer _playerSpriteRenderer;
 
     private const int BLUR_FRAME_DURATION = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        SpriteRenderer = GetComponent<SpriteRenderer>();
+        _playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private int currentBlurStep = 0;
@@ -31,14 +29,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SpriteRenderer.sprite.Equals(_transitionBlur) 
+        if (_playerSpriteRenderer.sprite.Equals(_transitionBlur) 
             && currentBlurStep >= BLUR_FRAME_DURATION)
         {
             SetSpriteFromKey();
 
             currentBlurStep = 0;
         }
-        else if (SpriteRenderer.sprite.Equals(_transitionBlur))
+        else if (_playerSpriteRenderer.sprite.Equals(_transitionBlur))
         {
             currentBlurStep++;
         }
@@ -46,13 +44,13 @@ public class Player : MonoBehaviour
             || Input.GetKeyDown(KeyCode.LeftArrow)
             || Input.GetKeyDown(KeyCode.Space))
         {
-            SpriteRenderer.sprite = _transitionBlur;
+            _playerSpriteRenderer.sprite = _transitionBlur;
         }
         else if (!Input.GetKey(KeyCode.RightArrow)
             && !Input.GetKey(KeyCode.LeftArrow)
             && !Input.GetKey(KeyCode.Space))
         {
-            SpriteRenderer.sprite = _neutral;
+            _playerSpriteRenderer.sprite = _neutral;
             _charging_sfx.Stop();
         }         
     }
@@ -61,24 +59,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            SpriteRenderer.sprite = _attackRight;
+            _playerSpriteRenderer.sprite = _attackRight;
             _attackVOalt.Play();
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            SpriteRenderer.sprite = _attackLeft;
+            _playerSpriteRenderer.sprite = _attackLeft;
             _attackVOalt2.Play();
         }
         else if (Input.GetKey(KeyCode.Space))
         {
-            SpriteRenderer.sprite = _pPose;
+            _playerSpriteRenderer.sprite = _pPose;
             _charging_VO.Play();
             _charging_sfx.Play();
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Take damage
     }
 }

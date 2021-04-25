@@ -1102,7 +1102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c73b6d3fb43ba64ba980da195fc0171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabs:
+  _enemyPrefabs:
   - {fileID: 6563157887032971715, guid: f66b6344700adcc4db35887c98d8cd02, type: 3}
   - {fileID: 501968568901112182, guid: da884098d2c7fce47bc913d7a7be5575, type: 3}
   - {fileID: 419629959954646889, guid: 37d8f5c54e3568d4996fd2f70413f33e, type: 3}
